@@ -1,0 +1,14 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: rgb(196, 189, 189);
+    width: 1300px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    
+}
+.grid-item
+{
+    padding: 5px;
+}

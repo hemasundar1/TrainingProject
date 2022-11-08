@@ -1,0 +1,30 @@
+<app-nav-bar></app-nav-bar>
+<div class="card " style="align-items:center">
+    <h1>wsovlKM</h1>
+</div>
+<ng-container *ngFor="let x of statusValue">
+    <div class="grid-container mt-3" *ngIf="x.applicationDetails.userModel.userId==currentUser.userId"  >
+            <div id="requeststruct" class="grid-container ">
+                <div class="grid-item">Scholarship id : <b> {{x.id}}</b></div>
+                <div class="grid-item">Student name : <b>{{x.applicationDetails.name}}</b></div>
+                <div class="grid-item">Student class name :<b> {{x.applicationDetails.className}}</b></div>
+                <div class="grid-item">Student state :<b> {{x.applicationDetails.state}}</b></div>
+                <div class="grid-item">Student college name :<b> {{x.applicationDetails.collegeName}}</b></div>
+              <!--  <div class="grid-item">Email: {{x.emailId}}</div>
+                <div class="grid-item">Phone Number: {{x.phonenumber}}</div>
+                <div class="grid-item">AadharNumber : {{x.aadharCardNumber}}</div>-->
+                <div class="grid-item">Student postal address: <b>{{x.applicationDetails.postalAddress}}</b></div>
+                <div *ngIf="x.applicationDetails.status=='approved'">
+                    <div style="background-color: green;width: fit-content;" class="grid-item">Status: {{x.applicationDetails.status}}</div>
+                </div>
+                <div *ngIf="x.applicationDetails.status=='rejected'">
+                    <div style="background-color: red;width: fit-content;" class="grid-item">Status: {{x.applicationDetails.status}}</div>
+                </div>
+                <div *ngIf="x.applicationDetails.status==null || x.applicationDetails.status==''">
+                    <div style="background-color: yellow;width: fit-content;" class="grid-item">Status: in_progress</div>
+                </div>
+                <div class="grid-item" *ngIf="x.applicationDetails.assigned !=0">Assined to employee id :<b>{{x.applicationDetails.assigned}}</b></div>
+            </div><br><br>
+        </div>
+</ng-container>
+

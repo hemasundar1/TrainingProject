@@ -1,0 +1,124 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container" >
+
+    <form style="margin-top: 2cm;" [formGroup]="ApplicationForm" class="border p-5" (ngSubmit)="submitted()">
+        <div formGroupName="scholarshipDetails" *ngIf="step==1" >
+
+            <div class="row g-0" >
+                <div class="col text-center p-2 mb-5 " id="head" >
+                    <span class="fs-3">SCHOLARSHIP FORM</span>
+                </div>
+                <div>
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="name" class="form-label">full name: </label>
+                            <input type="text" class="form-control" id="firstName" formControlName="name" placeholder="NOTE: ENTER YOUR FULL NAME AS PER THE MARKSHEET PLEASE !!">
+                        </div>
+                        <!--<div class="col">
+                            <label for="lastName" class="form-label">Last Name: </label>
+                            <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+     
+            <div class="row" >
+                <div class="col mb-3">
+                    <label for="state" class="form-label">state : </label>
+                    <input type="text" class="form-control" id="state" formControlName="state">
+                    <div class="form_text"></div>
+                 </div>
+                <div class="col mb-3">
+                    <label for="address" class="form-label">postal address : </label>
+                    <input type="text" class="form-control" id="address" formControlName="postalAddress">
+                    <div class="form_text">
+        
+                    </div>
+                </div>
+                
+            </div>
+          
+            <div class="row" >
+                <div class="col mb-3">
+                    <label for="collegeName" class="form-label">college name with address: </label>
+                    <input type="text" class="form-control" id="collegeName" formControlName="collegeName">
+                    <div class="form-text"></div>
+                </div>
+         
+                <div class="col mb-3">
+                    <label for="className" class="form-label">class : </label>
+                    <input type="text" class="form-control" id="className" formControlName="className">
+                    <div class="form-text"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="marksheet" class=" form-label">upload previous year marksheet:</label>
+                    <input type="file" class="form-control" id="marksheet" accept="image/jpeg" (change)="onSelectFile($event)" style="background-color: white;" >
+                </div>
+            </div>
+        </div>
+   
+<!--                              second page                            -->
+<div formGroupName="documentDetails" *ngIf="step==2" >
+
+    <div class="row g-0" >
+        <div class="col text-center p-2 mb-5 " id="head" >
+            <span class="fs-3">DOCUMENT DETAILS</span>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="adharNum" class="form-label">aadhar number: </label>
+                    <input type="text" class="form-control" id="adharNum" formControlName="adharNum">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"  >
+        <div class="col">
+            <label for="rollNum" class="form-label">roll number : </label>
+            <input type="text" class="form-control" id="rollNum" formControlName="rollNum">
+        </div>
+    </div>
+    <div class="row"  >
+        <div class="col">
+            <label for="accountNum" class="form-label">account number: </label>
+            <input type="text" class="form-control" id="accountNum"  formControlName="accountNum">
+        </div>
+        <div class="col">
+            <label for="ifscNum" class="form-label">IFSC code: </label>
+            <input type="text" class="form-control" id="ifscNum"  formControlName="ifscNum">
+        </div>
+    </div>
+ 
+    <div class="row" >
+        <div class="col">
+            <label for="branch" class="form-label">branch : </label>
+            <input type="text" class="form-control" id="branch"  formControlName="branch">
+        </div>
+    </div>
+
+</div>
+<div class="row ">
+    <div class="col-6 offset-3 ">
+        <div class="d-grid">
+            <button type="prev"  *ngIf="step==2" (click)="previous()" >PREVIOUS</button>
+        </div>
+    </div>
+    <div class="col-6 offset-3 ">
+        <div class="d-grid">
+            <button type="submit" *ngIf="step==2">SUBMIT</button>
+        </div>
+    </div>
+    <div class="col-6 offset-3 ">
+        <div class="d-grid">
+            <button type="next"  *ngIf="step==1" (click)="next()">Next</button>
+        </div>
+    </div>
+</div>
+
+    </form>
+</div>

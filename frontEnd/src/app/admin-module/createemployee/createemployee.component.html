@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div [hidden]="!submitted">
+  <h4>Employee not created!</h4>
+</div>
+<br>
+<h2 style="text-align: center;">CREATE EMPLOYEE</h2>
+<hr>
+<div style="width: 400px;">
+  <form (ngSubmit)="onSubmit()" style="margin-left: 3cm;">
+    <div class="form-group">
+      <label for="name">Employee name</label>
+      <input type="text" class="form-control" id="userName" required [(ngModel)]="employee.userName" name="userName">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Email id</label>
+        <input type="text" class="form-control" id="email" required [(ngModel)]="employee.email" name="email">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Password</label>
+        <input type="text" class="form-control" id="password" required [(ngModel)]="employee.password" name="password">
+    </div>
+
+    <!--<div class="form-group">
+        <label for="name">Confirm Password</label>
+        <input type="text" class="form-control" id="confirmPassword" required [(ngModel)]="employee.confirmPassword" name="confirmPassword">
+        <span *ngIf="employee.password !== employee.confirmPassword"> Password doesn't match!</span>
+    </div>-->
+
+    <div class="form-group">
+        <label for="name">Mobile number</label>
+        <input type="text" class="form-control" id="mobileNumber" required [(ngModel)]="employee.mobileNumber" name="mobileNumber">
+    </div>
+
+     <div class="form-group">
+        <label for="name">Role</label>
+        <select type="text" class="form-control" id="role" required [(ngModel)]="employee.userRole" value="Employee" name="role">
+          <option>Employee</option>
+        </select>
+     </div>
+     <br>
+    <button type="submit" class="btn btn-success">create</button>
+    <button (click)="gotoList()" class="btn btn-primary" style="margin-left: 10px">back </button>
+  </form>
+</div>

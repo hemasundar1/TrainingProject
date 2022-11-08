@@ -1,0 +1,18 @@
+<app-navbaremployee></app-navbaremployee>
+<br><br>
+<div *ngFor="let x of xapp">
+    <ng-container *ngIf="x.applicationDetails.status==null || x.applicationDetails.status==''">
+        <div *ngIf="currentUser.userId==x.applicationDetails.assigned" id="requeststruct" class="grid-container">
+            <div class="grid-item">Scholarship id : <b>{{x.id}}</b></div>
+            <div class="grid-item">Student name : <b>{{x.applicationDetails.name}}</b></div>
+            <div class="grid-item">Student class name : <b>{{x.applicationDetails.className}}</b></div>
+            <div class="grid-item">Student state : <b>{{x.applicationDetails.state}}</b></div>
+            <div class="grid-item">Student college name : <b>{{x.applicationDetails.collegeName}}</b></div>
+            <div class="grid-item">Student address: <b>{{x.applicationDetails.postalAddress}}</b></div>
+            <div class="grid-item">Student mobile number: <b>{{x.applicationDetails.userModel.mobileNumber}}</b></div>
+            <div class="grid-item">Student email: <b>{{x.applicationDetails.userModel.email}}</b></div>
+            <div class="grid-item"><button (click)="onClick(x.id)" class="btn btn-primary btn-lg">view</button></div>
+        </div><br><br>
+    </ng-container>
+    
+</div>

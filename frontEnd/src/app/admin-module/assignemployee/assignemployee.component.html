@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<br>
+<h2 style="text-align: center;">ASSIGN REQUESTS TO EMPLOYEE</h2>
+<hr>
+<div [hidden]="submitted" style="width: 400px;">
+  <form style="margin-left: 3cm;">
+    <div class="form-group">
+      <label for="firstName">Student name</label><br>
+      <input type="text" class="form-control" [(ngModel)]="requests.userModel.userName" name="userName">
+    </div><br>
+    <div class="form-group">
+        <label for="email">Email id</label><br>
+        <input type="text" class="form-control" [(ngModel)]="requests.userModel.email" name="email">
+    </div><br>
+
+   <!-- <div class="form-group">
+        <label for="name">Password</label>
+        <input type="text" class="form-control" id="password" required [(ngModel)]="employee.password" name="password">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Confirm Password</label>
+        <input type="text" class="form-control" id="confirmPassword" required [(ngModel)]="employee.confirmPassword" name="confirmPassword">
+    </div>-->
+
+    <div class="form-group">
+        <label for="name">Mobile number</label><br>
+        <input type="text" class="form-control" [(ngModel)]="requests.userModel.mobileNumber" name="mobileNumber">
+    </div><br>  
+
+    <div class="form-group">
+        <label for="name">Assign employee id</label><br>
+        <select type="Number" class="form-control" [(ngModel)]="requests.assigned" name="assigned">
+          <option>select employee id</option>
+            <ng-container *ngFor="let x of employee"> 
+              <ng-container *ngIf="x.userRole=='Employee'">
+                <option>{{x.userId}} </option>
+              </ng-container>
+           </ng-container>
+        </select>
+       <!-- <span *ngIf="requests.assinged!=0 || requests.assinged!= null || requests.assinged!=''">assign to employee please!!</span>-->
+        <span >click on assign employee id and select the employee</span>
+    </div><br> 
+
+    <button type="submit" (click)="onSubmit()" class="btn btn-success btn-lg">assign</button>
+    <button (click)="gotoList()" class="btn btn-primary btn-sm" style="margin-left: 300px">back </button><br>
+  </form>
+</div>
