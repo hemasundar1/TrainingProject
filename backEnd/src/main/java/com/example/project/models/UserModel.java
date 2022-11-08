@@ -1,0 +1,126 @@
+package com.example.project.models;
+
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+@CrossOrigin(origins = "http://localhost:4200")
+@Entity
+@Table(name = "Users")
+
+public class UserModel {
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private int userId;
+	
+	private String userRole;
+	
+	@Column(unique = true)
+	private String email;
+	
+	private String userName;
+	
+	private String mobileNumber;
+	
+	private String password;
+	
+	
+	
+	@OneToOne(mappedBy= "userModel" , fetch = FetchType.EAGER , orphanRemoval = true)
+	@JsonIgnore
+	private ApplicationDetails applicationdetails;
+	
+
+
+
+	public ApplicationDetails getApplicationdetails() {
+		return applicationdetails;
+	}
+
+	public void setApplicationdetails(ApplicationDetails applicationdetails) {
+		this.applicationdetails = applicationdetails;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+
+	public String getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public UserModel() {
+		super();
+
+	}
+
+	public UserModel( String userRole, String email, String userName, String mobileNumber, String password) {
+		super();
+		
+		this.userRole = userRole;
+		this.email = email;
+		this.userName = userName;
+		this.mobileNumber = mobileNumber;
+		this.password = password;
+	}
+
+	public UserModel(int userId) {
+		super();
+		this.userId = userId;
+	}
+	
+	
+	
+}
